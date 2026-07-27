@@ -159,6 +159,10 @@ skills/image-prompt/
 
 변경 이력·검증 실측 → [GitHub Releases](https://github.com/gongnyang/gongnyang-prompt-kit/releases) · 릴리스 체크리스트 [`RELEASING.md`](RELEASING.md) · 라이선스 [MIT](LICENSE)
 
+## 감사
+
+- [@fivetaku](https://github.com/fivetaku) — 킷 전체 외부 감사([#6](https://github.com/gongnyang/gongnyang-prompt-kit/pull/6)): 검증기 스키마 게이트 8종 신설, 회귀 픽스처 16→27종, CI 도입, 링크·예제 경로 결함 수정. 전 항목 실측 재현으로 확인된 정확한 감사였습니다. 🙇
+
 ---
 
 <div align="center">

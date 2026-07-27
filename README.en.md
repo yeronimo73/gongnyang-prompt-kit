@@ -163,6 +163,10 @@ skills/image-prompt/
 
 Change history & verification measurements → [GitHub Releases](https://github.com/gongnyang/gongnyang-prompt-kit/releases) · release checklist [`RELEASING.md`](RELEASING.md) · license [MIT](LICENSE)
 
+## Acknowledgements
+
+- [@fivetaku](https://github.com/fivetaku) — full external audit of the kit ([#6](https://github.com/gongnyang/gongnyang-prompt-kit/pull/6)): 8 new validator schema gates, regression fixtures 16→27, CI introduction, link & example-path fixes. Every finding reproduced and confirmed. 🙇
+
 ---
 
 <div align="center">

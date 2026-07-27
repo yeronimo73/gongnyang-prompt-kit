@@ -159,6 +159,10 @@ skills/image-prompt/
 
 変更履歴・検証実測 → [GitHub Releases](https://github.com/gongnyang/gongnyang-prompt-kit/releases) · リリースチェックリスト [`RELEASING.md`](RELEASING.md) · ライセンス [MIT](LICENSE)
 
+## 謝辞
+
+- [@fivetaku](https://github.com/fivetaku) — キット全体の外部監査（[#6](https://github.com/gongnyang/gongnyang-prompt-kit/pull/6)）：検証器スキーマゲート8種の新設、回帰フィクスチャ16→27種、CI導入、リンク・サンプルパスの欠陥修正。全項目を実測再現で確認できた正確な監査でした。🙇
+
 ---
 
 <div align="center">
