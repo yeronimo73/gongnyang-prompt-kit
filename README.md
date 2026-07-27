@@ -6,7 +6,7 @@
 
 **막연한 한마디를 gpt-image-2 완성 프롬프트로 컴파일하는 Claude Code 스킬.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE) &nbsp;![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-d97757) &nbsp;![target: gpt-image-2](https://img.shields.io/badge/target-gpt--image--2-1E4D40) &nbsp;![library: C1-C12 + P1-P8 + TP1-TP14](https://img.shields.io/badge/library-C1--C12_+_P1--P8_+_TP1--TP14-C19A6B)
+[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE) &nbsp;![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-d97757) &nbsp;![target: gpt-image-2](https://img.shields.io/badge/target-gpt--image--2-1E4D40) &nbsp;![library: C1-C12 + P1-P12 + TP1-TP17](https://img.shields.io/badge/library-C1--C12_+_P1--P12_+_TP1--TP17-C19A6B)
 
 [데모 사이트](https://gongnyang.github.io/gongnyang-prompt-kit) · [설치](#quickstart) · [라우팅](#라우팅) · [English](README.en.md) · [日本語](README.ja.md)
 
@@ -91,8 +91,8 @@ v3의 코어는 라우팅 표 하나다 — 요청 신호로 한 행을 고르�
 | 이렇게 말하면 | 이렇게 컴파일된다 | 읽는 레퍼런스 |
 |---|---|---|
 | 단독 인물 화보·에디토리얼 | C1 · Format B 플랫 콤마형 | [`editorial-hwabo.md`](skills/image-prompt/references/editorial-hwabo.md) |
-| 타이포 포스터·"글자가 곧 이미지" | TP1–TP14 중 패턴 1개 | [`typo-poster-router.md`](skills/image-prompt/references/typo-poster-router.md) → `typo-poster/` 1파일 |
-| 홍보판촉물·"디자인 잘된 포스터" | P1–P8 중 패턴 1개 | [`promo-router.md`](skills/image-prompt/references/promo-router.md) → `promo/` 1파일 |
+| 타이포 포스터·"글자가 곧 이미지" | TP1–TP17 중 패턴 1개 | [`typo-poster-router.md`](skills/image-prompt/references/typo-poster-router.md) → `typo-poster/` 1파일 |
+| 홍보판촉물·"디자인 잘된 포스터" | P1–P12 중 패턴 1개 | [`promo-router.md`](skills/image-prompt/references/promo-router.md) → `promo/` 1파일 |
 | 포스터·키아트·인포그래픽·카드뉴스·만화·도감·아이콘·뷰티·캠페인·목업 | C2–C11 | [`category-patterns.md`](skills/image-prompt/references/category-patterns.md) 해당 절 |
 | 프레젠테이션·슬라이드 덱 | C12 (16:9 기본) | [`category-patterns.md`](skills/image-prompt/references/category-patterns.md) §C12 |
 | 무드("있어보이게"·"럭셔리"·"영화처럼") | 룩 프리셋 L1–L9 드롭인 | [`look-presets.md`](skills/image-prompt/references/look-presets.md) |
@@ -101,7 +101,7 @@ v3의 코어는 라우팅 표 하나다 — 요청 신호로 한 행을 고르�
 | 카메라·조명·색 어휘 | 결과 서술 어휘 | [`photo-vocab.md`](skills/image-prompt/references/photo-vocab.md) |
 | jsonl 배치·모델 팩트·완성 예제 | jsonl 스키마·codex 골격 | [`jsonl-and-examples.md`](skills/image-prompt/references/jsonl-and-examples.md) |
 
-라이브러리 커버 범위: 카테고리 **C1–C12** · 타이포 포스터 **TP1–TP14** · 홍보판촉물 **P1–P8** · 룩 프리셋 **L1–L9** · 컨셉 축 **M1–M10 / R / X / T1–T5**.
+라이브러리 커버 범위: 카테고리 **C1–C12** · 타이포 포스터 **TP1–TP17** · 홍보판촉물 **P1–P12** · 룩 프리셋 **L1–L9** · 컨셉 축 **M1–M10 / R / X / T1–T5**.
 
 ## 핵심 규칙
 
@@ -125,7 +125,21 @@ v3의 코어는 라우팅 표 하나다 — 요청 신호로 한 행을 고르�
 | **오클루전 × 그림자 서사 (집)** | **마스킹 × 타이포-환경 (폭풍)** | **L9 그림자 서사 (필름카메라)** |
 | ![오클루전 × 그림자 서사 — 집](docs/showcase/PR07.webp) | ![마스킹 × 타이포-환경 — 폭풍](docs/showcase/PR08.webp) | ![L9 그림자 서사 — 필름카메라](docs/showcase/HD01.webp) |
 
-갤러리 전체(전후 비교 21페어·TP 14종·P 12컷·L9 12컷) → [데모 사이트](https://gongnyang.github.io/gongnyang-prompt-kit) · 고밀도 도표 대표컷은 [`examples/diagram-gallery/`](examples/diagram-gallery/)
+### v4.0 신규 패턴 7종
+
+| P9 · 그레인 스플릿 필드 | P10 · 단일 상징 오브제 | P11 · 회화 초상 크롭 커버 | P12 · 간판체 콜라주 |
+|---|---|---|---|
+| ![P9 그레인 스플릿 필드](docs/showcase/NP01.webp) | ![P10 단일 상징 오브제](docs/showcase/NP02.webp) | ![P11 회화 초상 크롭 커버](docs/showcase/NP03.webp) | ![P12 간판체 콜라주](docs/showcase/NP04.webp) |
+| 두 색면이 만나는 경계를 선이 아니라 거친 인쇄 그레인으로 부수고, 그 위에 오브제 하나를 앉힌다. | 평평한 단색 판면에 상징 오브제 하나만 세우고 나머지는 전부 비운다. | 회화 초상을 표지 크기로 크게 잘라 넣고 위아래 밴드에 타이틀을 얹는다. | 같은 간판체 카피를 칸칸이 변주해 깔고 굵은 슬랩 띠로 눌러 고정한다. |
+
+| TP15 · 손절단 워드마크 | TP16 · 인쇄 그라디언트 페이크 크롬 | TP17 · 활자 견본 시트 |
+|---|---|---|
+| ![TP15 손절단 워드마크](docs/showcase/NP05.webp) | ![TP16 인쇄 그라디언트 페이크 크롬](docs/showcase/NP06.webp) | ![TP17 활자 견본 시트](docs/showcase/NP07.webp) |
+| 종이를 손으로 오려 붙인 듯 어긋난 글자들이 워드마크 하나를 이룬다. | 평평한 인쇄 그라디언트만으로 금속 광택을 흉내 내는 타입스택. | 한 서체를 자족·굵기 사다리·기호까지 판면 하나에 펼쳐 보인다. |
+
+신규 7패턴 컴파일 레코드 49건은 [`examples/foundry-wave1.jsonl`](examples/foundry-wave1.jsonl).
+
+갤러리 전체(전후 비교 21페어·TP 17종·P 12컷·L9 12컷) → [데모 사이트](https://gongnyang.github.io/gongnyang-prompt-kit) · 고밀도 도표 대표컷은 [`examples/diagram-gallery/`](examples/diagram-gallery/)
 
 ## 구조·릴리스·라이선스
 
@@ -140,10 +154,10 @@ skills/image-prompt/
 ├─ references/                   # 라우팅 표가 가리킬 때만 읽는 깊은 내용
 │  ├─ category-patterns.md       #   C1–C12 컷타입·기본 AR·만화·키아트·덱
 │  ├─ look-presets.md            #   룩 프리셋 L1–L9 드롭인
-│  ├─ promo-router.md            #   홍보판촉물 라우터(P1–P8)·마감 디바이스·크로스브리드
-│  ├─ promo/                     #     P1–P8 패턴별 드롭인 (라우터가 고른 1개만 로드)
-│  ├─ typo-poster-router.md      #   타이포 포스터 라우터(TP1–TP14)
-│  ├─ typo-poster/               #     TP1–TP14 패턴별 드롭인 (라우터가 고른 1개만 로드)
+│  ├─ promo-router.md            #   홍보판촉물 라우터(P1–P12)·마감 디바이스·크로스브리드
+│  ├─ promo/                     #     P1–P12 패턴별 드롭인 (라우터가 고른 1개만 로드)
+│  ├─ typo-poster-router.md      #   타이포 포스터 라우터(TP1–TP17)
+│  ├─ typo-poster/               #     TP1–TP17 패턴별 드롭인 (라우터가 고른 1개만 로드)
 │  ├─ concept-axes.md            #   컨셉 축 — 사조 M1–M10·몸 반응 번역·모순쌍·컬러 번역·타이포 아트 T1–T5
 │  ├─ typography-layout.md       #   영역 문법·롤 라벨·폰트 어휘·그리드
 │  ├─ editorial-hwabo.md         #   화보 Format B·슬롯 12종·Tier-2 정본(§3)

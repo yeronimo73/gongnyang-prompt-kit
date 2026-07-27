@@ -23,6 +23,7 @@ jobs:
           for f in \
             examples/showcase.jsonl \
             examples/typo-poster.jsonl \
+            examples/foundry-wave1.jsonl \
             examples/prompts.sample.jsonl \
             examples/diagram-gallery/dense-16x9/prompts-dense.jsonl \
             examples/diagram-gallery/infographic/prompts.jsonl

@@ -6,7 +6,7 @@
 
 **漠然としたひと言を gpt-image-2 の完成プロンプトへコンパイルする Claude Code スキル。**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE) &nbsp;![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-d97757) &nbsp;![target: gpt-image-2](https://img.shields.io/badge/target-gpt--image--2-1E4D40) &nbsp;![library: C1-C12 + P1-P8 + TP1-TP14](https://img.shields.io/badge/library-C1--C12_+_P1--P8_+_TP1--TP14-C19A6B)
+[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE) &nbsp;![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-d97757) &nbsp;![target: gpt-image-2](https://img.shields.io/badge/target-gpt--image--2-1E4D40) &nbsp;![library: C1-C12 + P1-P12 + TP1-TP17](https://img.shields.io/badge/library-C1--C12_+_P1--P12_+_TP1--TP17-C19A6B)
 
 [デモサイト](https://gongnyang.github.io/gongnyang-prompt-kit) · [インストール](#quickstart) · [ルーティング](#ルーティング) · [한국어](README.md) · [English](README.en.md)
 
@@ -91,8 +91,8 @@ v3 のコアはルーティング表ひとつだ — リクエストのシグナ
 | こう頼むと | こうコンパイルされる | 読むリファレンス |
 |---|---|---|
 | 単独人物のグラビア・エディトリアル | C1 · Format B フラットカンマ形式 | [`editorial-hwabo.md`](skills/image-prompt/references/editorial-hwabo.md) |
-| タイポポスター・「文字がそのまま絵になる」 | TP1〜TP14 からパターン1つ | [`typo-poster-router.md`](skills/image-prompt/references/typo-poster-router.md) → `typo-poster/` 1ファイル |
-| 販促グラフィック・「デザインの効いたポスター」 | P1〜P8 からパターン1つ | [`promo-router.md`](skills/image-prompt/references/promo-router.md) → `promo/` 1ファイル |
+| タイポポスター・「文字がそのまま絵になる」 | TP1〜TP17 からパターン1つ | [`typo-poster-router.md`](skills/image-prompt/references/typo-poster-router.md) → `typo-poster/` 1ファイル |
+| 販促グラフィック・「デザインの効いたポスター」 | P1〜P12 からパターン1つ | [`promo-router.md`](skills/image-prompt/references/promo-router.md) → `promo/` 1ファイル |
 | ポスター・キーアート・インフォグラフィック・カードニュース・漫画・図鑑・アイコン・ビューティー・キャンペーン・モックアップ | C2〜C11 | [`category-patterns.md`](skills/image-prompt/references/category-patterns.md) 該当セクション |
 | プレゼンテーション・スライドデッキ | C12（16:9 デフォルト） | [`category-patterns.md`](skills/image-prompt/references/category-patterns.md) §C12 |
 | ムード（「高見えに」・「ラグジュアリーに」・「映画みたいに」） | ルックプリセット L1〜L9 ドロップイン | [`look-presets.md`](skills/image-prompt/references/look-presets.md) |
@@ -101,7 +101,7 @@ v3 のコアはルーティング表ひとつだ — リクエストのシグナ
 | カメラ・照明・色の語彙 | 結果記述の語彙 | [`photo-vocab.md`](skills/image-prompt/references/photo-vocab.md) |
 | jsonl バッチ・モデルファクト・完成例 | jsonl スキーマ・codex スケルトン | [`jsonl-and-examples.md`](skills/image-prompt/references/jsonl-and-examples.md) |
 
-ライブラリのカバー範囲: カテゴリ **C1〜C12** · タイポポスター **TP1〜TP14** · 販促グラフィック **P1〜P8** · ルックプリセット **L1〜L9** · コンセプト軸 **M1〜M10 / R / X / T1〜T5**。
+ライブラリのカバー範囲: カテゴリ **C1〜C12** · タイポポスター **TP1〜TP17** · 販促グラフィック **P1〜P12** · ルックプリセット **L1〜L9** · コンセプト軸 **M1〜M10 / R / X / T1〜T5**。
 
 ## コアルール
 
@@ -125,7 +125,21 @@ v3 のコアはルーティング表ひとつだ — リクエストのシグナ
 | **オクルージョン × 影の叙事（家）** | **マスキング × タイポ環境（嵐）** | **L9 影の叙事（フィルムカメラ）** |
 | ![オクルージョン × 影の叙事 — 家](docs/showcase/PR07.webp) | ![マスキング × タイポ環境 — 嵐](docs/showcase/PR08.webp) | ![L9 影の叙事 — フィルムカメラ](docs/showcase/HD01.webp) |
 
-ギャラリー全体（ビフォー/アフター比較 21ペア・TP 14種・P 12カット・L9 12カット）→ [デモサイト](https://gongnyang.github.io/gongnyang-prompt-kit) · 高密度図表の代表カットは [`examples/diagram-gallery/`](examples/diagram-gallery/)
+### v4.0 新規パターン7種
+
+| P9 · グレイン分割フィールド | P10 · 単一シンボル + 極端な余白 | P11 · 絵画肖像クロップ表紙 | P12 · 看板書体コラージュ |
+|---|---|---|---|
+| ![P9 グレイン分割フィールド](docs/showcase/NP01.webp) | ![P10 単一シンボル + 極端な余白](docs/showcase/NP02.webp) | ![P11 絵画肖像クロップ表紙](docs/showcase/NP03.webp) | ![P12 看板書体コラージュ](docs/showcase/NP04.webp) |
+| 2つの色面が出会う境界を線ではなく粗い印刷グレインで崩し、その上にオブジェを1つ座らせる。 | フラットな単色の版面にシンボルとなるオブジェを1つだけ立て、残りはすべて空ける。 | 絵画の肖像を表紙サイズに大きく断ち切り、上下の帯にタイトルを載せる。 | 同じ看板書体のコピーをコマごとに変奏して敷き、太いスラブ帯で押さえて固定する。 |
+
+| TP15 · 手切りワードマーク | TP16 · 印刷グラデーションの偽クローム | TP17 · 活字見本シート |
+|---|---|---|
+| ![TP15 手切りワードマーク](docs/showcase/NP05.webp) | ![TP16 印刷グラデーションの偽クローム](docs/showcase/NP06.webp) | ![TP17 活字見本シート](docs/showcase/NP07.webp) |
+| 紙を手で切り貼りしたようにずれた文字が、1つのワードマークを作る。 | フラットな印刷グラデーションだけで金属光沢を装うタイプスタック。 | 1書体を字面・ウェイトの階梯・記号まで1つの版面に広げて見せる。 |
+
+新規7パターンのコンパイルレコード49件は [`examples/foundry-wave1.jsonl`](examples/foundry-wave1.jsonl)。
+
+ギャラリー全体（ビフォー/アフター比較 21ペア・TP 17種・P 12カット・L9 12カット）→ [デモサイト](https://gongnyang.github.io/gongnyang-prompt-kit) · 高密度図表の代表カットは [`examples/diagram-gallery/`](examples/diagram-gallery/)
 
 ## 構造・リリース・ライセンス
 
@@ -140,10 +154,10 @@ skills/image-prompt/
 ├─ references/                   # ルーティング表が指すときだけ読む深い内容
 │  ├─ category-patterns.md       #   C1〜C12 カットタイプ・デフォルト AR・漫画・キーアート・デッキ
 │  ├─ look-presets.md            #   ルックプリセット L1〜L9 ドロップイン
-│  ├─ promo-router.md            #   販促グラフィックルーター（P1〜P8）・仕上げデバイス・クロスブリード
-│  ├─ promo/                     #     P1〜P8 パターン別ドロップイン（ルーターが選んだ1つだけロード）
-│  ├─ typo-poster-router.md      #   タイポポスタールーター（TP1〜TP14）
-│  ├─ typo-poster/               #     TP1〜TP14 パターン別ドロップイン（ルーターが選んだ1つだけロード）
+│  ├─ promo-router.md            #   販促グラフィックルーター（P1〜P12）・仕上げデバイス・クロスブリード
+│  ├─ promo/                     #     P1〜P12 パターン別ドロップイン（ルーターが選んだ1つだけロード）
+│  ├─ typo-poster-router.md      #   タイポポスタールーター（TP1〜TP17）
+│  ├─ typo-poster/               #     TP1〜TP17 パターン別ドロップイン（ルーターが選んだ1つだけロード）
 │  ├─ concept-axes.md            #   コンセプト軸 — 潮流 M1〜M10・身体反応の翻訳・矛盾ペア・カラー翻訳・タイポアート T1〜T5
 │  ├─ typography-layout.md       #   領域文法・ロールラベル・フォント語彙・グリッド
 │  ├─ editorial-hwabo.md         #   グラビア Format B・スロット12種・Tier-2 正本（§3）

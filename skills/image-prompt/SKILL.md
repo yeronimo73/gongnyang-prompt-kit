@@ -1,7 +1,7 @@
 ---
 name: image-prompt
-version: "3.0.0"
-description: 막연한 요청을 gpt-image-2(Codex `$imagegen`) 완성 프롬프트로 컴파일. 커버 — 카테고리 C1~C12·화보 Format B·홍보물 P1~P8·타이포 포스터 TP1~TP14·룩 L1~L9·컨셉 축 M/R/X/T·jsonl·검증기. 트리거 — "공냥 프롬프트", "이미지 프롬프트 써줘", "화보 프롬프트", "키아트", "타이포 포스터", "홍보물/판촉물", "포스터/카드뉴스/만화", "슬라이드/피피티 이미지", "글자 배치", "프롬프트 jsonl", "컨셉부터 잡아줘", "시안 여러 개". ※ 생성·양산은 [codex-imagegen].
+version: "4.0.0"
+description: 막연한 요청을 gpt-image-2(Codex `$imagegen`) 완성 프롬프트로 컴파일. 커버 — 카테고리 C1~C12·화보 Format B·홍보물 P1~P12·타이포 포스터 TP1~TP17·룩 L1~L9·컨셉 축 M/R/X/T·jsonl·검증기. 트리거 — "공냥 프롬프트", "이미지 프롬프트 써줘", "화보 프롬프트", "키아트", "타이포 포스터", "홍보물/판촉물", "표지/앨범커버/북커버", "활자 견본/워드마크", "포스터/카드뉴스/만화", "슬라이드/피피티 이미지", "글자 배치", "프롬프트 jsonl", "컨셉부터 잡아줘", "시안 여러 개". ※ 생성·양산은 [codex-imagegen].
 ---
 
 # 🐾 공냥 프롬프트 킷 VOL.2 — gpt-image-2 프롬프트 컴파일러
@@ -25,8 +25,10 @@ description: 막연한 요청을 gpt-image-2(Codex `$imagegen`) 완성 프롬프
 | 요청 신호 | 카테고리/포맷 | 읽을 파일 |
 |---|---|---|
 | 단독 인물 화보·에디토리얼 | C1·Format B | `references/editorial-hwabo.md` (룩북·시퀀스·패션 21종 +`references/style-taxonomy.md`) |
-| 타이포 포스터·글자가 곧 이미지 | TP1~TP14 | `references/typo-poster-router.md`→`references/typo-poster/TPn-*.md` 1개 |
-| 홍보판촉물·브랜드 포스터·"디자인 잘된 포스터" | P1~P8 | `references/promo-router.md`→`references/promo/Pn-*.md` 1개. 카드뉴스 밀도 문법 금지(미감 사망) |
+| 타이포 포스터·글자가 곧 이미지 | TP1~TP17 | `references/typo-poster-router.md`→`references/typo-poster/TPn-*.md` 1개 |
+| 활자 견본·글리프 세트·손절단 워드마크·인쇄 그라디언트 금속 | TP15~TP17 | `references/typo-poster-router.md`→ 해당 `TPn-*.md` 1개 |
+| 홍보판촉물·브랜드 포스터·"디자인 잘된 포스터" | P1~P12 | `references/promo-router.md`→`references/promo/Pn-*.md` 1개. 카드뉴스 밀도 문법 금지(미감 사망) |
+| 표지 판면(앨범커버·북커버·패키징 라벨)·색면 분할·회화 표지·간판체 콜라주 | P9~P12 | `references/promo-router.md`→ 해당 `Pn-*.md` 1개 |
 | 포스터·키아트·인포그래픽·카드뉴스·만화·도감·아이콘·뷰티·캠페인·목업 | C2~C11 | `references/category-patterns.md` 해당 §. C6·C7=밀도 기본값·돌파 전술 §C6 |
 | 프레젠테이션·슬라이드 덱 | C12 | `references/category-patterns.md` §C12 |
 | 무드("있어보이게"·"럭셔리"·"영화처럼") | 룩 L1~L9 | `references/look-presets.md` 프리셋 1개 드롭인 |

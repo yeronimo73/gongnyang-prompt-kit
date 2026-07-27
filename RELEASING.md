@@ -4,7 +4,8 @@
 
 ## 체크리스트
 
-- [ ] **1. SKILL.md version** — frontmatter `version`을 semver로 올린다 (패턴군 추가 = minor, 규칙 수정 = patch, 구조 개편 = major).
+- [ ] **1. SKILL.md version** — frontmatter `version`을 semver로 올린다 (**신규 카테고리 군 신설 = major**, 기존 군 내 패턴 추가 = minor, 규칙 수정 = patch, 구조 개편 = major).
+  - 기존 문안의 "패턴군 추가 = minor"는 **이미 있는 군(C·P·TP·L 등) 안에 개별 패턴을 더하는 경우**만 가리킨다. 새 카테고리 군을 세우거나 군의 커버 범위 자체를 재정의하는 확장(SKILL.md 라우팅 표에 새 요청 신호 행이 서는 규모)은 major로 올린다.
 - [ ] **2. frontmatter description** — 새 커버 영역·트리거를 반영한다. 군 이름만 열거(개별 세부 나열 금지), 체인지로그성 표현(신설·추가·vX.X) 금지, 500자 이내.
 - [ ] **3. 라우팅 표** — SKILL.md의 라우팅 표에 새 요청 신호 → 카테고리/포맷 → 읽을 파일 행을 추가·수정한다. 라우팅 정본은 이 표 한 곳뿐이다.
 - [ ] **4. README 3종** — `README.md` · `README.en.md` · `README.ja.md`의 구조 설명·버전 표기·SKILL.md 인용부를 동기화한다.

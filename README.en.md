@@ -6,7 +6,7 @@
 
 **A Claude Code skill that compiles a vague one-liner into a finished gpt-image-2 prompt.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE) &nbsp;![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-d97757) &nbsp;![target: gpt-image-2](https://img.shields.io/badge/target-gpt--image--2-1E4D40) &nbsp;![library: C1-C12 + P1-P8 + TP1-TP14](https://img.shields.io/badge/library-C1--C12_+_P1--P8_+_TP1--TP14-C19A6B)
+[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE) &nbsp;![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-d97757) &nbsp;![target: gpt-image-2](https://img.shields.io/badge/target-gpt--image--2-1E4D40) &nbsp;![library: C1-C12 + P1-P12 + TP1-TP17](https://img.shields.io/badge/library-C1--C12_+_P1--P12_+_TP1--TP17-C19A6B)
 
 [Demo site](https://gongnyang.github.io/gongnyang-prompt-kit) · [Install](#quickstart) · [Routing](#routing) · [한국어](README.md) · [日本語](README.ja.md)
 
@@ -95,8 +95,8 @@ The core of v3 is one routing table — a request signal picks one row, and you 
 | When you say | It compiles as | Reference to read |
 |---|---|---|
 | Solo-figure editorial / fashion spread | C1 · Format B flat-comma | [`editorial-hwabo.md`](skills/image-prompt/references/editorial-hwabo.md) |
-| Typography poster · "the type IS the image" | one pattern from TP1–TP14 | [`typo-poster-router.md`](skills/image-prompt/references/typo-poster-router.md) → one file in `typo-poster/` |
-| Promo graphics · "a properly designed poster" | one pattern from P1–P8 | [`promo-router.md`](skills/image-prompt/references/promo-router.md) → one file in `promo/` |
+| Typography poster · "the type IS the image" | one pattern from TP1–TP17 | [`typo-poster-router.md`](skills/image-prompt/references/typo-poster-router.md) → one file in `typo-poster/` |
+| Promo graphics · "a properly designed poster" | one pattern from P1–P12 | [`promo-router.md`](skills/image-prompt/references/promo-router.md) → one file in `promo/` |
 | Poster · key art · infographic · card-news (SNS info cards) · comic · atlas · icon · beauty · campaign · mockup | C2–C11 | [`category-patterns.md`](skills/image-prompt/references/category-patterns.md), relevant section |
 | Presentation · slide deck | C12 (16:9 default) | [`category-patterns.md`](skills/image-prompt/references/category-patterns.md) §C12 |
 | Mood ("make it classy" · "luxury" · "like a film") | look preset L1–L9 drop-in | [`look-presets.md`](skills/image-prompt/references/look-presets.md) |
@@ -105,7 +105,7 @@ The core of v3 is one routing table — a request signal picks one row, and you 
 | Camera · lighting · color vocabulary | result-description vocabulary | [`photo-vocab.md`](skills/image-prompt/references/photo-vocab.md) |
 | jsonl batches · model facts · complete examples | jsonl schema · codex skeleton | [`jsonl-and-examples.md`](skills/image-prompt/references/jsonl-and-examples.md) |
 
-Library coverage: categories **C1–C12** · typography posters **TP1–TP14** · promo graphics **P1–P8** · look presets **L1–L9** · concept axes **M1–M10 / R / X / T1–T5**.
+Library coverage: categories **C1–C12** · typography posters **TP1–TP17** · promo graphics **P1–P12** · look presets **L1–L9** · concept axes **M1–M10 / R / X / T1–T5**.
 
 ## Core rules
 
@@ -129,7 +129,21 @@ These are not rules for making images come out well — they are rules that bloc
 | **Occlusion × shadow narrative (집 "home")** | **Masking × typo-environment (폭풍 "storm")** | **L9 shadow narrative (film camera)** |
 | ![Occlusion × shadow narrative — 집 "home"](docs/showcase/PR07.webp) | ![Masking × typo-environment — 폭풍 "storm"](docs/showcase/PR08.webp) | ![L9 shadow narrative — film camera](docs/showcase/HD01.webp) |
 
-Full gallery (21 before/after pairs · 14 TP patterns · 12 P cuts · 12 L9 cuts) → [demo site](https://gongnyang.github.io/gongnyang-prompt-kit) · representative dense-diagram cuts live in [`examples/diagram-gallery/`](examples/diagram-gallery/)
+### New in v4.0 — 7 patterns
+
+| P9 · Grain split field | P10 · Solitary symbol, extreme void | P11 · Painted portrait crop cover | P12 · Signage-type collage |
+|---|---|---|---|
+| ![P9 grain split field](docs/showcase/NP01.webp) | ![P10 solitary symbol, extreme void](docs/showcase/NP02.webp) | ![P11 painted portrait crop cover](docs/showcase/NP03.webp) | ![P12 signage-type collage](docs/showcase/NP04.webp) |
+| Two flat color fields meet along a seam broken into coarse printed grain instead of a line, one object sitting astride it. | One symbolic object stands on a flat single-color field; everything else is left empty. | A painted portrait cropped up to cover scale, with the title set into bands at the top and bottom. | The same signage-type copy repeats across tiles in variations, pinned down by one heavy slab band. |
+
+| TP15 · Hand-cut wordmark | TP16 · Printed-gradient fake chrome | TP17 · Type specimen sheet |
+|---|---|---|
+| ![TP15 hand-cut wordmark](docs/showcase/NP05.webp) | ![TP16 printed-gradient fake chrome](docs/showcase/NP06.webp) | ![TP17 type specimen sheet](docs/showcase/NP07.webp) |
+| Letters that look cut from paper by hand and pasted back slightly out of line, forming one wordmark. | A typestack faking metal sheen with nothing but flat printed gradients. | One typeface spread across a single sheet — glyph set, weight ladder, symbols. |
+
+The 49 compile records behind the 7 new patterns are in [`examples/foundry-wave1.jsonl`](examples/foundry-wave1.jsonl).
+
+Full gallery (21 before/after pairs · 17 TP patterns · 12 P cuts · 12 L9 cuts) → [demo site](https://gongnyang.github.io/gongnyang-prompt-kit) · representative dense-diagram cuts live in [`examples/diagram-gallery/`](examples/diagram-gallery/)
 
 ## Structure, releases & license
 
@@ -144,10 +158,10 @@ skills/image-prompt/
 ├─ references/                   # deep content, read only when the routing table points to it
 │  ├─ category-patterns.md       #   C1–C12 cut types · default ARs · comics · key art · decks
 │  ├─ look-presets.md            #   look presets L1–L9, drop-in
-│  ├─ promo-router.md            #   promo-graphics router (P1–P8) · finishing devices · crossbreeds
-│  ├─ promo/                     #     P1–P8 per-pattern drop-ins (load only the 1 the router picks)
-│  ├─ typo-poster-router.md      #   typography-poster router (TP1–TP14)
-│  ├─ typo-poster/               #     TP1–TP14 per-pattern drop-ins (load only the 1 the router picks)
+│  ├─ promo-router.md            #   promo-graphics router (P1–P12) · finishing devices · crossbreeds
+│  ├─ promo/                     #     P1–P12 per-pattern drop-ins (load only the 1 the router picks)
+│  ├─ typo-poster-router.md      #   typography-poster router (TP1–TP17)
+│  ├─ typo-poster/               #     TP1–TP17 per-pattern drop-ins (load only the 1 the router picks)
 │  ├─ concept-axes.md            #   concept axes — movements M1–M10 · bodily-reaction translation · contradiction pairs · color translation · typo art T1–T5
 │  ├─ typography-layout.md       #   zone grammar · role labels · font vocabulary · grids
 │  ├─ editorial-hwabo.md         #   editorial Format B · 12 slots · Tier-2 canon (§3)
